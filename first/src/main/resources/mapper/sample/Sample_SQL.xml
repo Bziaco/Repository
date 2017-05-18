@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="sample.dao">
+     
+	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+	
+		<![CDATA[
+			SELECT * FROM mysql.TB_BOARD
+		]]>
+	</select>
+	
+	
+	<insert id="insertBoard" parameterType="hashmap">
+	    <![CDATA[
+	        INSERT INTO mysql.TB_BOARD
+	        (
+	            TITLE,
+	            CONTENTS,
+	            HIT_CNT,
+	            DEL_GB,
+	            CREA_DTM,
+	            CREA_ID
+	        )
+	        VALUES
+	        (
+	            #{TITLE},
+	            #{CONTENTS},
+	            0,
+	            'N',
+	            SYSDATE(),
+	            'Admin'
+	        )
+	    ]]>
+	</insert>
+	
+	<update id="updateHitCnt" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE mysql.TB_BOARD
+	        SET
+	            HIT_CNT = ifnull(HIT_CNT, 0) + 1
+	        WHERE
+	            IDX = #{IDX}   
+	    ]]>
+	</update>
+	 
+	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+	    <![CDATA[
+	        SELECT
+	            IDX,
+	            HIT_CNT,
+	            CREA_ID,
+	            CREA_DTM,
+	            TITLE,
+	            CONTENTS
+	        FROM
+	            mysql.TB_BOARD
+	        WHERE
+	            IDX = #{IDX}       
+	    ]]>
+	</select>
+	
+	<update id="updateBoard" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE mysql.TB_BOARD
+	        SET
+	            TITLE = #{TITLE},
+	            CONTENTS = #{CONTENTS}
+	        WHERE
+	            IDX = #{IDX}   
+	    ]]>
+	</update>
+
+</mapper>

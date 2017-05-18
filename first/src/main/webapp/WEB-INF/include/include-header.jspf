@@ -1,0 +1,19 @@
+<%@ page pageEncoding="utf-8"%>
+ 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>first</title>
+ 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+
+<!-- CSS --> 
+<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.servletContext.contextPath}/jqGrid/css/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.servletContext.contextPath}/jqGrid/css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>" />
+<!-- jQuery -->
+<script src="${pageContext.servletContext.contextPath}/jqGrid/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="${pageContext.servletContext.contextPath}/jqGrid/js/i18n/grid.locale-kr.js" type="text/javascript"></script>
+<script src="${pageContext.servletContext.contextPath}/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="${pageContext.servletContext.contextPath}/jqGrid/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
