@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-</head>
-<body>
     <h2>게시판 목록</h2>
     <table class="board_list">
         <colgroup>
@@ -28,7 +23,7 @@
                         <tr>
                             <td>${row.IDX }</td>
                             <td class="title">
-                                <a href="#this" name="title">${row.TITLE }</a>
+                                <a href="#this" name="title" onclick="GRID.fn_test();">${row.TITLE }</a>
                                 <input type="hidden" id="IDX" value="${row.IDX }">
                             </td>
                             <td>${row.HIT_CNT }</td>
@@ -45,11 +40,11 @@
         </tbody>
     </table>
     <br/>
-    <a href="#this" class="btn" id="write">글쓰기</a>
+    <a href="#this" class="btn" id="write" onclick="COMMON.fn_test2();">글쓰기</a>
      
     <%@ include file="/WEB-INF/include/include-body.jspf" %>
     <script type="text/javascript">
-        $(document).ready(function(){
+/*         $(document).ready(function(){
             $("#write").on("click", function(e){ //글쓰기 버튼
                 e.preventDefault();
                 fn_openBoardWrite();
@@ -59,7 +54,7 @@
                 e.preventDefault();
                 fn_openBoardDetail($(this));
             });
-        });
+        }); */
          
          
         function fn_openBoardWrite(){
@@ -75,5 +70,3 @@
             comSubmit.submit();
         }
     </script>
-</body>
-</html>

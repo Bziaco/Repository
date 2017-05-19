@@ -3,7 +3,20 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>  
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
 <html>    
-<head>  
+<head>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+	
+	<!-- CSS --> 
+	<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.servletContext.contextPath}/jqGrid/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.servletContext.contextPath}/jqGrid/css/ui.jqgrid.css" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>" />
+	<!-- jQuery -->
+	<script src="${pageContext.servletContext.contextPath}/jqGrid/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="${pageContext.servletContext.contextPath}/jqGrid/js/i18n/grid.locale-kr.js" type="text/javascript"></script>
+	<script src="${pageContext.servletContext.contextPath}/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+	<script src="${pageContext.servletContext.contextPath}/jqGrid/js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="<c:url value='/js/namespace.js'/>" charset="utf-8"></script>
 </head>
 <body>
     <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
