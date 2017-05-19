@@ -7,6 +7,7 @@ KMTC.COMMON = function(_mod_common, $, undefined){
 	fn_test2 = function() {
 		debugger;
 		gfn_isNull("44");
+		GRID.fn_test();
 	};
 	
 	function gfn_isNull(str) {
