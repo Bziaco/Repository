@@ -15,48 +15,34 @@
             var i, max, myData, grid = $("#list4");
             // grid 설정
             grid.jqGrid({
+            	/* data: '$(list)', */
                 datatype: "local",
-                height: 'auto',
+                height: '230',
                 loadonce : false,
-                colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+                colNames:['No','부모 컬럼','자식컬럼', '조회수', '날짜','작성자'],
                 colModel:[
-                    {name:'id',index:'id', width:60, sorttype:"int"},
-                    {name:'invdate',index:'invdate', width:90, sorttype:"date"},
-                    {name:'name',index:'name', width:100},
-                    {name:'amount',index:'amount', width:80, align:"right",sorttype:"float"},
-                    {name:'tax',index:'tax', width:80, align:"right",sorttype:"float"},
-                    {name:'total',index:'total', width:80,align:"right",sorttype:"float"},
-                    {name:'note',index:'note', width:150, sortable:false}
+                    {name:'id',index:'id', width:30, sorttype:"int"},
+                    {name:'col_parents',index:'col_parents', width:100},
+                    {name:'col_child',index:'col_child', width:100},
+                    {name:'count',index:'count', width:70, sorttype:"int"},
+                    {name:'parents_dt',index:'parents_dt', width:60, align:"right",sorttype:"date"},
+                    {name:'parents_wrt',index:'parents_wrt', width:90, align:"right"},
                 ],
                 rowNum:10,
-                autowidth: true,
+                autowidth: false,
                 rowList:[5,10,15],
                 pager: "#pager1",
-                multiselect: true,
+                multiselect: false,
                 sortname: 'id',
                 loadonce : false,
                 viewrecords: true,
                 sortorder: "asc",
                 caption:"Board"
             }).navGrid('#pager1',{edit:false,add:false,del:false});
-            // 로컬 데이터
-            myData = [
-                {id:"1",invdate:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-                {id:"2",invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                {id:"3",invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-                {id:"4",invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-                {id:"5",invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                {id:"6",invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-                {id:"7",invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-                {id:"8",invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                {id:"9",invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                {id:"10",invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                {id:"11",invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                {id:"12",invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
-            ];
             // 데이터 추가
-            for( i=0, max = myData.length ; i<=max ; i++ ){
-                grid.jqGrid('addRowData', i+1, myData[i]);
+            var list = "$(list)";
+            for( i=0, max = list.length ; i<=max ; i++ ){
+                grid.jqGrid('addRowData', i+1, list[i]);
             }
             $("#list4").setGridParam({ rowNum: 10 }).trigger("reloadGrid");
         });

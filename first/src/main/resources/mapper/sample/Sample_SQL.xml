@@ -3,14 +3,14 @@
  
 <mapper namespace="sample.dao">
      
-	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+	<select id="selectGridList" parameterType="hashmap" resultType="hashmap">
 	
 		<![CDATA[
-			SELECT * FROM mysql.TB_BOARD
+			SELECT * FROM mysql.parents
 		]]>
 	</select>
 	
-	
+<!-- 	
 	<insert id="insertBoard" parameterType="hashmap">
 	    <![CDATA[
 	        INSERT INTO mysql.TB_BOARD
@@ -69,6 +69,5 @@
 	        WHERE
 	            IDX = #{IDX}   
 	    ]]>
-	</update>
-
+	</update> -->
 </mapper>
