@@ -6,6 +6,12 @@
 <head>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+	<% String contextRoot = request.getContextPath(); %>
+	<script>
+        var CONTEXT_ROOT = '<%=contextRoot%>';
+        var isLiveMode = false;
+        var topMenuCloseYn = "N";
+	</script>
 	
 	<!-- CSS --> 
 	<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.servletContext.contextPath}/jqGrid/css/jquery-ui.min.css" />

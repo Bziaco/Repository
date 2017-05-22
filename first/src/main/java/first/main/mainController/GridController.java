@@ -22,13 +22,20 @@ public class GridController {
     private GridService gridService;
     
     @RequestMapping(value="/jqGridBoard/jqBoardList.do")
-    public @ResponseBody Map<String, Object> jqBoardList(Map<String,Object> commandMap, Model model) throws Exception{
+    public String jqBoardList(Map<String,Object> commandMap, Model model) throws Exception{
+       
+       return "jqGridBoard/jqBoardList";
+    }
+    
+    
+    @RequestMapping(value="/jqGridBoard/selectJqList.do",  produces = "application/json;charset=UTF-8")
+    public @ResponseBody Map<String, Object> selectJqList(Map<String,Object> commandMap, Model model) throws Exception{
        List<Map<String,Object>> list = gridService.selectGridList(commandMap);
        
        Map<String , Object> returnMap = new HashMap<String , Object>();
-       returnMap.put("list",list);
+       returnMap.put("list", list);
         
-       return "jqGridBoard/jqBoardList";
+       return returnMap;
     }
 
 }
